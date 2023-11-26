@@ -1,0 +1,48 @@
+.recent-match-card {
+  list-style-type: none;
+  background-color: #0f172a;
+  width: 250px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 20px;
+  margin-right: 85px;
+  margin-left: 0;
+  border-radius: 10px;
+}
+.recent-match-card-img {
+  height: 130px;
+  width: 120px;
+}
+.recent-match-card-team {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 0;
+}
+.recent-match-card-result {
+  text-align: center;
+}
+.recent-match-card-status-green {
+  color: #18ed66;
+  font-size: 25px;
+  margin-top: 2px;
+}
+.recent-match-card-status-white {
+  font-size: 25px;
+  color: #e31a1a;
+  margin-top: 2px;
+}
+@media screen and (min-width: 576px) {
+  .recent-match-card-img {
+    height: 120px;
+    width: 100px;
+  }
+  .recent-match-card-team {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 0;
+  }
+}

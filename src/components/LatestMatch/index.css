@@ -1,0 +1,78 @@
+.latest-match-container {
+  width: 100%;
+}
+.latest-match-card-info {
+  background-color: #0f172a;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  justify-content: space-around;
+}
+.latest-match-info-left-info {
+  color: #ffffff;
+  width: 380px;
+}
+.latest-match-img-info {
+  height: 250px;
+}
+
+.latest-match-team-info {
+  margin: 0;
+  font-size: 38px;
+}
+.latest-match-date-info {
+  font-size: 25px;
+}
+.latest-match-venue-info {
+  font-size: 20px;
+}
+.latest-match-result-info {
+  font-size: 18px;
+}
+.latest-match-info-right-info {
+  color: #ffffff;
+  width: 380px;
+  text-align: right;
+}
+.latest-match-first-inning-head-info {
+  font-size: 22px;
+  margin: 0;
+}
+.latest-match-first-inning-info {
+  font-size: 16px;
+}
+.latest-match-second-inning-head-info {
+  font-size: 22px;
+}
+.latest-match-second-inning-info {
+  font-size: 16px;
+}
+.latest-match-MOTM-head-info {
+  font-size: 22px;
+}
+.latest-match-MOTM-info {
+  font-size: 16px;
+}
+.latest-match-umpire-head-info {
+  font-size: 22px;
+}
+.latest-match-umpire-info {
+  font-size: 16px;
+}
+@media screen and (min-width: 576px) {
+  .latest-match-info-left-info {
+    text-align: left;
+    width: 300px;
+  }
+  .latest-match-img-info {
+    height: 200px;
+  }
+  .latest-match-card-info {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .latest-match-info-right-info {
+    text-align: left;
+  }
+}

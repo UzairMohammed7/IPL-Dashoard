@@ -1,0 +1,48 @@
+.banner-img-container {
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 60px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.banner-img {
+  width: 100%;
+}
+.match-list {
+  width: 80%;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+.team-match-container {
+  min-height: 100vh;
+  background-size: cover;
+}
+.CSK {
+  background-image: linear-gradient(#f7db00, #ffffff33);
+}
+.KXP {
+  background-image: linear-gradient(#d91c1f, #1e293b);
+}
+.RCB {
+  background-image: linear-gradient(#a4261d, #1e293b);
+}
+.MI {
+  background-image: linear-gradient(#13418b, #ffffff33);
+}
+.SRH {
+  background-image: linear-gradient(#f26d22, #a4261d);
+}
+.KKR {
+  background-image: linear-gradient(#4f5db0, #a4261d);
+}
+@media screen and (min-width: 576px) {
+  .match-list {
+    width: 80%;
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
