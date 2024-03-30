@@ -1,3 +1,26 @@
+.back-btn {
+  margin-left: 40px;
+  margin-top: 20px;
+  width: 100px;
+  height: 30px;
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+}
+.pieChart-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .banner-img-container {
   padding-left: 40px;
   padding-right: 40px;
@@ -11,13 +34,13 @@
   width: 100%;
 }
 .match-list {
-  width: 80%;
-  padding-left: 0;
   display: flex;
+  justify-content: space-between;
+  width: 95vw;
   flex-wrap: wrap;
 }
 .team-match-container {
-  min-height: 100vh;
+  min-height: 200vh;
   background-size: cover;
 }
 .CSK {
@@ -32,13 +55,19 @@
 .MI {
   background-image: linear-gradient(#13418b, #ffffff33);
 }
-.SRH {
+.SH {
   background-image: linear-gradient(#f26d22, #a4261d);
 }
 .KKR {
   background-image: linear-gradient(#4f5db0, #a4261d);
 }
-@media screen and (min-width: 576px) {
+.DC {
+  background-image: linear-gradient(#13418b, #a4261d);
+}
+.RR {
+  background-image: linear-gradient(#1151b9, #a744a2);
+}
+@media screen and (max-width: 576px) {
   .match-list {
     width: 80%;
     padding-left: 0;

@@ -11,7 +11,7 @@
 }
 .latest-match-info-left-info {
   color: #ffffff;
-  width: 380px;
+  /* width: 480px; */
 }
 .latest-match-img-info {
   height: 250px;
@@ -32,8 +32,6 @@
 }
 .latest-match-info-right-info {
   color: #ffffff;
-  width: 380px;
-  text-align: right;
 }
 .latest-match-first-inning-head-info {
   font-size: 22px;

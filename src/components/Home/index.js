@@ -38,11 +38,11 @@ class Home extends Component {
   }
 
   renderSpin = () => (
+    // eslint-disable-next-line
     <div testid="loader" className="loader-container">
       <Loader type="Oval" color="#ffffff" height={50} width={50} />
     </div>
   )
-  //
 
   render() {
     const {isLoading} = this.state

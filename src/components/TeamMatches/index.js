@@ -1,6 +1,7 @@
 import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
+import {PieChart, Pie, Legend, Cell, Tooltip} from 'recharts'
 
 import LatestMatch from '../LatestMatch'
 import MatchCard from '../MatchCard'
@@ -54,23 +55,11 @@ class TeamMatches extends Component {
   }
 
   renderSpin = () => (
+    // eslint-disable-next-line
     <div testid="loader" className="loader-container">
       <Loader type="Oval" color="#ffffff" height={50} width={50} />
     </div>
   )
-  //
-
-  renderTeamMatches = () => {
-    const {teamMatches} = this.state
-    const {latestMatchDetails, teamBannerUrl} = teamMatches
-    return (
-      <div className="banner-img-container">
-        <img src={teamBannerUrl} alt="team banner" className="banner-img" />
-        <LatestMatch eachlatestMatchDetails={latestMatchDetails} />
-        {this.renderMatchCard()}
-      </div>
-    )
-  }
 
   renderMatchCard = () => {
     const {teamMatches} = this.state
@@ -84,6 +73,101 @@ class TeamMatches extends Component {
           />
         ))}
       </ul>
+    )
+  }
+
+  renderTeamStatistics = () => {
+    const {teamMatches} = this.state
+    const {recentMatches} = teamMatches
+
+    let wins = 0
+    let losses = 0
+    let draws = 0
+
+    recentMatches.forEach(match => {
+      if (match.matchStatus === 'Won') wins += 1
+      else if (match.matchStatus === 'Lost') losses += 1
+      else if (match.matchStatus === 'Draw') draws += 1
+    })
+
+    const data = [
+      {name: 'Won', value: wins},
+      {name: 'Lost', value: losses},
+      {name: 'Draw', value: draws},
+    ]
+
+    const COLORS = ['#18ed66', '#e31a1a', '#FFBB28']
+    const RADIAN = Math.PI / 180
+    const renderCustomizedLabel = ({
+      cx,
+      cy,
+      midAngle,
+      innerRadius,
+      outerRadius,
+      percent,
+    }) => {
+      const radius = innerRadius + (outerRadius - innerRadius) * 0.5
+      const x = cx + radius * Math.cos(-midAngle * RADIAN)
+      const y = cy + radius * Math.sin(-midAngle * RADIAN)
+      return (
+        <text
+          x={x}
+          y={y}
+          fill="white"
+          textAnchor={x > cx ? 'start' : 'end'}
+          dominantBaseline="central"
+        >
+          {`${(percent * 100).toFixed(0)}%`}
+        </text>
+      )
+    }
+    return (
+      <div>
+        <PieChart width={500} height={500}>
+          <Pie
+            data={data}
+            cx="50%"
+            cy="50%"
+            labelLine={false}
+            label={renderCustomizedLabel}
+            outerRadius={80}
+            dataKey="value"
+          >
+            {data.map((entry, index) => (
+              <Cell fill={COLORS[index % COLORS.length]} />
+            ))}
+          </Pie>
+          <Tooltip />
+          <Legend verticalAlign="top" height={36} />
+        </PieChart>
+      </div>
+    )
+  }
+
+  onClickBackBtn = () => {
+    const {history} = this.props
+    history.push('/')
+  }
+
+  renderTeamMatches = () => {
+    const {teamMatches} = this.state
+    const {latestMatchDetails, teamBannerUrl} = teamMatches
+    return (
+      <>
+        <button
+          onClick={this.onClickBackBtn}
+          type="button"
+          className="back-btn"
+        >
+          Back
+        </button>
+        <div className="banner-img-container">
+          <img src={teamBannerUrl} alt="team banner" className="banner-img" />
+          <LatestMatch eachlatestMatchDetails={latestMatchDetails} />
+          {this.renderTeamStatistics()}
+          {this.renderMatchCard()}
+        </div>
+      </>
     )
   }
 
